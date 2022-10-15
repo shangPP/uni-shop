@@ -2,7 +2,7 @@
 	<view>
 		<!-- 使用自定义的搜索组件 -->
 		<my-search @click="gotoSearch"></my-search>
-		
+
 		<view class="scroll-view-container">
 			<!-- 左侧滑动区域 -->
 			<scroll-view class="left-scroll-view" scroll-y="true" :style="{height:wh+'px'}">
@@ -22,7 +22,8 @@
 					<!-- 当前二级分类下的三级分类列表 -->
 					<view class="cate-lv3-list">
 						<!-- 三级分类item项 -->
-						<view class="cate-lv3-item" v-for="(item3,i3) in item2.children" :key="i3" @click="gotoGoodsList(item3)">
+						<view class="cate-lv3-item" v-for="(item3,i3) in item2.children" :key="i3"
+							@click="gotoGoodsList(item3)">
 							<!-- 三级分类图片 -->
 							<image :src="item3.cat_icon"></image>
 							<!-- 三级分类文本 -->
@@ -36,7 +37,9 @@
 </template>
 
 <script>
+	import badgeMix from '@/mixins/tabbar-badge.js'
 	export default {
+		mixins: [badgeMix],
 		data() {
 			return {
 				wh: 0, //当前设备可用高度
@@ -73,15 +76,15 @@
 				this.scrollTop = this.scrollTop === 0 ? 1 : 0
 			},
 			// 跳转到商品列表页面
-			gotoGoodsList(item){
+			gotoGoodsList(item) {
 				console.log(item);
 				uni.navigateTo({
-					url:'/subpkg/goods_list/goods_list?cid='+item.cat_id
+					url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
 				})
 			},
-			gotoSearch(){
+			gotoSearch() {
 				uni.navigateTo({
-					url:'/subpkg/search/search'
+					url: '/subpkg/search/search'
 				})
 			}
 		}
