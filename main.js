@@ -21,6 +21,13 @@ $http.beforeRequest = function(options) {
 	uni.showLoading({
 		title: "数据加载中..."
 	})
+
+
+	if (options.url.includes('/my/')) {
+		options.header = {
+			Authorization: store.state.m_user.token
+		}
+	}
 }
 // 响应拦截器
 $http.afterRequest = function() {

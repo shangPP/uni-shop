@@ -62,9 +62,9 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "优购",
 		"navigationBarBackgroundColor": "#c00000",
-		"backgroundColor": "#F8F8F8",
+		"backgroundColor": "#fff",
 		"app-plus": {
-			"background": "#efeff4"
+			"background": "#fff"
 		}
 	},
 	"tabBar": {
