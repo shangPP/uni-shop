@@ -25,7 +25,7 @@
 			<view class="yf">快递：免运费</view>
 		</view>
 
-		<!--  -->
+		<!-- 商品详情 -->
 		<rich-text :nodes="goods_info.goods_introduce"></rich-text>
 
 		<!-- 商品导航组件区域 -->

@@ -14,7 +14,8 @@
 		<!-- 渲染购物车中的商品信息 -->
 		<uni-swiper-action>
 			<block v-for="(goods,i) in cart" :key="i">
-				<uni-swipe-action-item :right-options="options" @click="swipeItemClickHandler(goods)">
+				<uni-swipe-action-item :right-options="options" :auto-close="false" :show="true"
+					@click="swipeItemClickHandler(goods)">
 					<my-goods :goods="goods" :showRadio="true" :showNum="true" @radioChange="radioChangeHandler"
 						@numChange="numberChangeHandler"></my-goods>
 				</uni-swipe-action-item>
@@ -65,7 +66,7 @@
 			// 滑动删除点击事件
 			swipeItemClickHandler(goods) {
 				this.removeGoodsById(goods.goods_id)
-			}
+			},
 		}
 	}
 </script>
@@ -88,16 +89,19 @@
 			font-size: 14px;
 		}
 	}
-	.empty-cart{
+
+	.empty-cart {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding-top: 150px;
-		.empty-img{
+
+		.empty-img {
 			width: 90px;
 			height: 90px;
 		}
-		.tip{
+
+		.tip {
 			font-size: 12px;
 			color: gray;
 			margin-top: 15px;

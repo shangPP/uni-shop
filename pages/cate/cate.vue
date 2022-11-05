@@ -42,14 +42,15 @@
 		mixins: [badgeMix],
 		data() {
 			return {
-				wh: 0, //当前设备可用高度
+				wh: 0, //当前设备可用高度（屏幕高度-navigationBar高度-tabBar高度）
 				cateList: [], //获取分类列表数据的方法
-				active: 0,
+				active: 0,// 当前选中项的索引
 				cateLevel2: [], //二级分类列表
 				scrollTop: 0, //
 			};
 		},
 		onLoad() {
+			// 当前系统信息
 			const sysInfo = uni.getSystemInfoSync()
 			this.wh = sysInfo.windowHeight - 50
 
@@ -67,6 +68,7 @@
 				// 为二级分类赋值
 				this.cateLevel2 = res.message[0].children
 			},
+			// 更改当前选中的一级菜单和二级菜单内容
 			activeChanged(i) {
 				this.active = i
 
@@ -77,11 +79,12 @@
 			},
 			// 跳转到商品列表页面
 			gotoGoodsList(item) {
-				console.log(item);
+				// console.log(item);
 				uni.navigateTo({
 					url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
 				})
 			},
+			// 跳转到搜索页面
 			gotoSearch() {
 				uni.navigateTo({
 					url: '/subpkg/search/search'
